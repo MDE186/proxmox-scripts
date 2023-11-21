@@ -104,13 +104,13 @@ log "Installing nodejs"
 # runcmd NODE_MAJOR=20
 # echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
 # runcmd wget -qO - https://deb.nodesource.com/setup_20.x | bash -
-# runcmd apt-get install -y -q --no-install-recommends nodejs
-# runcmd npm install --global yarn
+runcmd apt-get install -y -q --no-install-recommends nodejs
+runcmd npm install --global yarn
 
 # Get latest version information for nginx-proxy-manager
-# log "Checking for latest NPM release"
-# runcmd 'wget $WGETOPT -O ./_latest_release $NPMURL/releases/latest'
-# _latest_version=$(cat ./_latest_release | grep -Po '(?<=expanded_assets/v)[^"]+')
+log "Checking for latest NPM release"
+runcmd 'wget $WGETOPT -O ./_latest_release $NPMURL/releases/latest'
+_latest_version=$(cat ./_latest_release | grep -Po '(?<=expanded_assets/v)[^"]+')
 
 # Download nginx-proxy-manager source
 log "Downloading NPM v$_latest_version"
