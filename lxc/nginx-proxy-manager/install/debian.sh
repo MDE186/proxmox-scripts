@@ -186,6 +186,10 @@ log "Building frontend"
 cd ./frontend
 export NODE_ENV=development
 runcmd yarn install --network-timeout=30000
+
+sudo sed -i 's/^pid/# pid/' /usr/local/openresty/nginx/conf/nginx.conf
+sudo sed -i 's/^user npm/user root/' /usr/local/openresty/nginx/conf/nginx.conf
+
 runcmd yarn build
 cp -r dist/* /app/frontend
 cp -r app-images/* /app/frontend/images
