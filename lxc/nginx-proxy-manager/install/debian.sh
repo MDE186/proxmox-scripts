@@ -66,6 +66,7 @@ if [ -f /lib/systemd/system/npm.service ]; then
   /var/lib/nginx \
   /var/cache/nginx &>/dev/null
   /etc/apt/keyrings/nodesource.gpg
+  /usr/share/keyrings/openresty.gpg
 fi
 
 # Install dependencies
