@@ -60,13 +60,13 @@ if [ -f /lib/systemd/system/npm.service ]; then
   # Cleanup for new install
   log "Cleaning old files"
   rm -rf /app \
+  /etc/apt/keyrings/nodesource.gpg \
+  /usr/share/keyrings/openresty.gpg \
   /var/www/html \
   /etc/nginx \
   /var/log/nginx \
   /var/lib/nginx \
   /var/cache/nginx &>/dev/null
-  /etc/apt/keyrings/nodesource.gpg
-  /usr/share/keyrings/openresty.gpg
 fi
 
 # Install dependencies
